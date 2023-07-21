@@ -34,7 +34,7 @@ app.post("/directory", (req,res)=>{
 
     db.query(q,[values],(err,data)=>{
         if(err) return res.json(err);
-        return res.json("Person has been saved");
+        return res.json("Person has been saved.");
     });
 })
 
