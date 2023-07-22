@@ -1,25 +1,23 @@
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-  
-} from "react-router-dom";
-
-import People from "./pages/People";
-import Add from "./pages/Add";
-import Update from "./pages/Update";
+import logo from './logo.svg';
+import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<People/>}/>
-          <Route path="/add" element={<Add/>}/>
-          <Route path="/update" element={<Update/>}/>
-        </Routes>
-      </BrowserRouter>
-
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
     </div>
   );
 }
