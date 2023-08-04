@@ -29,6 +29,7 @@ const Persons = () => {
                 <h2>{person.name}</h2>
                 <p>{person.surname}</p>
                 <p>{person.phone_number}</p>
+                <p>{person.email}</p>
               </div>
             ))}
           </div>

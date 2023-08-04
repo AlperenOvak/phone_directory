@@ -27,11 +27,14 @@ app.get("/persons", (req,res)=>{
 })
 
 app.post("/persons", (req,res)=>{
-    const q = "INSERT INTO persons (name,surname,phone_number) VALUES (?)";
+    const q = "INSERT INTO persons (name,surname,phone_number,personal_image,birthday,email) VALUES (?)";
     const values = [
         req.body.name,
         req.body.surname,
         req.body.phone_number,
+        req.body.personal_image,
+        req.body.birthday,
+        req.body.email,
     ];
 
     db.query(q,[values],(err,data)=>{
