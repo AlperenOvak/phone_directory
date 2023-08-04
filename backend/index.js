@@ -18,16 +18,16 @@ app.get("/",(req,res)=>{
     res.json("hello this is backend")
 })
 
-app.get("/directory", (req,res)=>{
-    const q = "SELECT * FROM directory"
+app.get("/persons", (req,res)=>{
+    const q = "SELECT * FROM persons"
     db.query(q,(err,data)=>{
         if(err) return res.json(err)
         return res.json(data)
     })
 })
 
-app.post("/directory", (req,res)=>{
-    const q = "INSERT INTO directory (name,surname,phone_number) VALUES (?)";
+app.post("/persons", (req,res)=>{
+    const q = "INSERT INTO persons (name,surname,phone_number) VALUES (?)";
     const values = [
         req.body.name,
         req.body.surname,
