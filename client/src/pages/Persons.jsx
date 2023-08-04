@@ -28,16 +28,17 @@ const Persons = () => {
             console.log(err)
         }
     }
-
+    
+    
     return (
         <div>
           <h1>My Directory</h1>
           <div className="persons">
             {persons.map((person) => (
               <div key={person.id} className="person">
-                <img src={person.image} alt="" />
+                <img src={person.personal_image} alt="" />
                 <h2>{person.name}</h2>
-                <p>{person.surname}</p>
+                <h2>{person.surname}</h2>
                 <p>{person.phone_number}</p>
                 <p>{person.email}</p>
                 <button className="update">
