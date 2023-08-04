@@ -20,16 +20,34 @@ const Persons = () => {
       fetchAllPersons();
     }, []);           
     
+    const handleDelete = async (id) =>{
+        try{
+            await axios.delete("http://localhost:8800/persons/"+id)
+            window.location.reload()
+        }catch(err){
+            console.log(err)
+        }
+    }
+
     return (
         <div>
           <h1>My Directory</h1>
           <div className="persons">
             {persons.map((person) => (
               <div key={person.id} className="person">
+                <img src={person.image} alt="" />
                 <h2>{person.name}</h2>
                 <p>{person.surname}</p>
                 <p>{person.phone_number}</p>
                 <p>{person.email}</p>
+                <button className="update">
+                    <Link to={`/update/${person.id}`} style={{ color: "inherit", textDecoration: "none" }}>
+                      Update
+                    </Link>
+                </button>
+                <button className="delete" onClick={()=>handleDelete(person.id)} >
+                    Delete
+                </button>
               </div>
             ))}
           </div>

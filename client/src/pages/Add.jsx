@@ -39,7 +39,7 @@ const Add = () => {
             <input type="text" placeholder="personal_image" onChange={handleChange} name="personal_image"/>
             <input type="date" placeholder="birthday" onChange={handleChange} name="birthday"/>
             <input type="text" placeholder="email" onChange={handleChange} name="email"/>
-            <button onClick={handleClick}>
+            <button className="formButton" onClick={handleClick}>
                 Add
             </button>
         </div>
