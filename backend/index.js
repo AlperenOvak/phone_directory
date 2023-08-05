@@ -18,7 +18,7 @@ app.get("/",(req,res)=>{
     res.json("hello this is backend")
 })
 
-app.get("/persons", (req,res)=>{
+app.get("/persons", (req,res)=>{                 //GET
     const q = "SELECT * FROM persons"
     db.query(q,(err,data)=>{
         if(err) return res.json(err)
@@ -26,7 +26,7 @@ app.get("/persons", (req,res)=>{
     })
 })
 
-app.post("/persons", (req,res)=>{
+app.post("/persons", (req,res)=>{               //POST
     const q = "INSERT INTO persons (name,surname,phone_number,personal_image,birthday,email) VALUES (?)";
     const values = [
         req.body.name,
@@ -43,7 +43,7 @@ app.post("/persons", (req,res)=>{
     });
 })
 
-app.delete("/persons/:id", (req,res)=>{
+app.delete("/persons/:id", (req,res)=>{         //DELETE
     const personId = req.params.id;
     const q = "DELETE FROM persons WHERE id = ?"
 
@@ -53,7 +53,7 @@ app.delete("/persons/:id", (req,res)=>{
     });
 })
 
-app.put("/persons/:id", (req,res)=>{
+app.put("/persons/:id", (req,res)=>{            //PUT
     const personId = req.params.id;
     const q = "UPDATE persons SET `name`=?, `surname`=?, `phone_number`=?, `personal_image`=?, `birthday`=?, `email`=? WHERE id =?"
     const values = [
@@ -72,6 +72,6 @@ app.put("/persons/:id", (req,res)=>{
     });
 })
 
-app.listen(8800, ()=>{
+app.listen(8800, ()=>{                      //LISTEN
     console.log("Connected to backend")
 })
