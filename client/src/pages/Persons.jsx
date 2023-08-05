@@ -8,6 +8,13 @@ const Persons = () => {
 
     const [persons, setPersons] = useState([]);
 
+
+    const [searchTerm, setSearchTerm] = useState([]);
+
+    const handleSearch = (e) =>{
+      setSearchTerm(e.target.value)
+    }
+
     useEffect(() => {
       const fetchAllPersons = async () => {
         try {
@@ -33,8 +40,15 @@ const Persons = () => {
     return (
         <div>
           <h1>My Directory</h1>
+          <input type="text" className="search" placeholder="search"  onChange={handleSearch} name="search"/>
           <div className="persons">
-            {persons.map((person) => (
+            {persons.filter((person)=>{
+              if(searchTerm == ""){
+                return person
+              } else if (person.name.toLowerCase().includes(searchTerm.toLowerCase()) || person.surname.toLowerCase().includes(searchTerm.toLowerCase())){
+                return person
+              }
+            }).map((person) => (
               <div key={person.id} className="person">
                 <img src={person.personal_image} alt="" />
                 <h2>{person.name}</h2>
